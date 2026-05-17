@@ -1,0 +1,5 @@
+name = "tristanmaratos"
+compatibility_date = "2024-11-01"
+
+# Static site + optional `wrangler pages dev .` for local preview.
+# Contact submissions use the Worker URL in js/contact-config.js.

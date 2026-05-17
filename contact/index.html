@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Contact Tristan Maratos — secure professional inquiry form. Systems operations, engineering leadership, aerospace education." />
+    <title>Contact — Tristan Maratos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/ops-ui.css" />
+    <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div id="site-header"></div>
+    <main id="main" class="shell">
+      <header class="page-hero">
+        <p class="eyebrow">Contact</p>
+        <h1 id="connect">Operational, deliberate communication</h1>
+        <p class="lead">
+          For recruiting, technical collaboration, aerospace education partnerships, or infrastructure advisory
+          conversations — send a structured note through the secure channel below. LinkedIn remains available for
+          lightweight introductions.
+        </p>
+      </header>
+
+      <section class="section contact-layout" style="padding-top: 0" aria-labelledby="contact-form-title">
+        <article class="panel panel-pad contact-card">
+          <div class="mini-head" style="margin-bottom: 1rem">
+            <div class="icon-round" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16v16H4z" />
+                <path d="M22 6l-10 7L2 6" />
+              </svg>
+            </div>
+            <h2 id="contact-form-title" style="margin: 0; font-size: 1.05rem; font-weight: 650">Secure inquiry</h2>
+          </div>
+          <p class="form-hint" style="margin-bottom: 1rem">
+            Submissions are sent over TLS to a dedicated Cloudflare Worker, with Turnstile verification first. Please keep
+            content high-level — no passwords, keys, or sensitive operational artifacts.
+          </p>
+
+          <div
+            id="tm-contact-status"
+            class="form-status"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></div>
+
+          <form id="tm-contact-form" class="contact-form" action="#" method="post" novalidate>
+            <div class="hp-field" aria-hidden="true">
+              <label for="company_website">Company website</label>
+              <input
+                class="form-input"
+                id="company_website"
+                name="company_website"
+                type="text"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="form-row two">
+              <div class="form-field">
+                <label for="contact-name">Name</label>
+                <input
+                  class="form-input"
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                  maxlength="120"
+                />
+              </div>
+              <div class="form-field">
+                <label for="contact-email">Your email</label>
+                <input
+                  class="form-input"
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  maxlength="254"
+                />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="contact-company">Company / organization</label>
+              <input class="form-input" id="contact-company" name="company" type="text" autocomplete="organization" maxlength="160" />
+            </div>
+
+            <div class="form-field">
+              <label for="contact-subject">Subject</label>
+              <input class="form-input" id="contact-subject" name="subject" type="text" required maxlength="180" />
+            </div>
+
+            <div class="form-field">
+              <label for="contact-message">Message</label>
+              <textarea class="form-textarea" id="contact-message" name="message" required maxlength="6000"></textarea>
+            </div>
+
+            <div class="turnstile-shell">
+              <div class="turnstile-widget-wrap">
+                <div
+                  id="tm-turnstile-widget"
+                  class="cf-turnstile"
+                  data-callback="onTurnstileSuccess"
+                  data-expired-callback="onTurnstileExpired"
+                  data-error-callback="onTurnstileError"
+                  data-theme="dark"
+                  data-appearance="always"
+                ></div>
+                <div
+                  id="tm-turnstile-notice"
+                  class="turnstile-notice"
+                  role="alert"
+                  aria-live="polite"
+                  hidden
+                ></div>
+                <button
+                  type="button"
+                  id="tm-turnstile-retry"
+                  class="btn btn-ghost turnstile-retry-btn"
+                  hidden
+                >
+                  Retry verification
+                </button>
+              </div>
+              <p class="form-hint turnstile-hint">
+                Protected by Cloudflare Turnstile — complete the check before sending.
+              </p>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-ghost has-spinner" type="submit" id="tm-contact-submit" aria-busy="false">
+                <span class="btn-spinner" aria-hidden="true"></span>
+                <span class="btn-label">Send message</span>
+              </button>
+              <p class="form-hint" style="margin: 0">Typical response time varies; urgent production issues deserve a bridge call after an intro.</p>
+            </div>
+          </form>
+        </article>
+
+        <aside class="panel panel-pad contact-aside" aria-label="Other channels">
+          <div>
+            <h2>LinkedIn</h2>
+            <p>Best for quick context, role alignment, or mutual connections.</p>
+            <a class="link-arrow" href="https://www.linkedin.com/in/tristan-maratos" target="_blank" rel="noopener noreferrer"
+              >Open profile <span aria-hidden="true">→</span></a
+            >
+          </div>
+          <div class="mini-divider" aria-hidden="true"></div>
+          <div>
+            <h2>Outreach policy</h2>
+            <p>
+              Personal email and phone are not published on this site. Use the secure form above or LinkedIn for
+              professional introductions.
+            </p>
+          </div>
+          <div class="mini-divider" aria-hidden="true"></div>
+          <div>
+            <h2>Privacy</h2>
+            <p>
+              Messages leave your browser over TLS, pass Turnstile, and post to a dedicated Cloudflare Worker. Nothing
+              routes through this static site — your note carries the operational detail.
+            </p>
+          </div>
+        </aside>
+      </section>
+    </main>
+    <div id="site-footer"></div>
+    <script src="/js/chunks.js" defer></script>
+    <script src="/js/site.js" defer></script>
+    <script src="/js/contact-config.js" defer></script>
+    <script src="/js/contact-form.js" defer></script>
+  </body>
+</html>
