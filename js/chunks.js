@@ -17,17 +17,12 @@ window.__CHUNKS = {
           <li><a href="/experience/">Experience</a></li>
           <li><a href="/education/">Education</a></li>
           <li><a href="/projects/">Projects</a></li>
+          <li><a href="/services/">Services</a></li>
           <li><a href="/aviation/">Aviation &amp; Leadership</a></li>
           <li><a href="/about/">About</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
-      <a class="btn btn-ghost" href="/resume/tristan-maratos-resume.pdf" download>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M12 3v12m0 0l4-4m-4 4l-4-4M4 21h16"/>
-        </svg>
-        Resume (PDF)
-      </a>
     </div>
   </header>`,
   footer: `
@@ -46,9 +41,9 @@ window.__CHUNKS = {
         <p>Serious inquiries welcome. Use the secure contact form for collaboration.</p>
         <ul class="footer-links">
           <li><a href="/projects/">Projects</a></li>
+          <li><a href="/services/">Services</a></li>
           <li><a href="/aviation/">Aviation &amp; CAP</a></li>
           <li><a href="/contact/">Contact</a></li>
-          <li><a href="/resume/tristan-maratos-resume.pdf">Résumé (PDF)</a></li>
         </ul>
       </div>
       <div class="footer-col">
