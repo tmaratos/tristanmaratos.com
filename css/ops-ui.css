@@ -1462,16 +1462,62 @@ main {
 .services-pricing-main p {
   margin: 0 0 1rem;
   color: var(--text-soft);
-  line-height: 1.62;
+  line-height: 1.65;
 }
 
-.services-pricing-main p:last-child {
+.services-pricing-main p:last-child,
+.services-pricing-main .services-scope-close {
   margin-bottom: 0;
 }
 
-.services-pricing-main strong {
-  color: rgba(191, 219, 254, 0.95);
+.services-scope-label {
+  margin: 0.25rem 0 0.65rem;
+  font-size: 0.82rem;
   font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+}
+
+.services-scope-list {
+  margin: 0 0 1.15rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+@media (min-width: 520px) {
+  .services-scope-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 1.25rem;
+  }
+}
+
+.services-scope-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.services-scope-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent));
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.45);
+}
+
+.services-scope-close {
+  padding-top: 0.15rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.95rem;
 }
 
 .services-note--church {
