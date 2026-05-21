@@ -1,6 +1,6 @@
 /**
  * Public contact endpoint + Turnstile site key (public only).
- * Set turnstileSiteKey to your Cloudflare Turnstile widget’s site key.
+ * TristanMaratos.com Turnstile widget — never put the secret key here.
  */
 window.TM_CONTACT_CONFIG = {
   endpoint: "https://tristan-contact-worker.aviationministries.workers.dev/",
