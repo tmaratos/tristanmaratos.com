@@ -1,13 +1,18 @@
 (function () {
+  "use strict";
+
   var form = document.getElementById("tm-contact-form");
   if (!form) return;
 
   var cfg = window.TM_CONTACT_CONFIG || {};
   var endpoint = String(cfg.endpoint || "").trim();
+  var siteKey = String(cfg.turnstileSiteKey || "").trim();
 
   var statusEl = document.getElementById("tm-contact-status");
   var submitBtn = form.querySelector('button[type="submit"]');
   var btnLabel = submitBtn ? submitBtn.querySelector(".btn-label") : null;
+  var turnstileWidgetId = null;
+  var turnstileToken = "";
   var isSubmitting = false;
 
   var MSG_MISSING = "Complete the verification challenge before sending.";
@@ -72,8 +77,15 @@
   }
 
   function getTurnstileToken() {
-    var el = form.querySelector('input[name="cf-turnstile-response"]');
-    return el && el.value ? String(el.value).trim() : "";
+    if (turnstileToken) return turnstileToken;
+    if (window.turnstile && turnstileWidgetId != null) {
+      try {
+        return window.turnstile.getResponse(turnstileWidgetId) || "";
+      } catch (e) {
+        return "";
+      }
+    }
+    return "";
   }
 
   function updateSubmitAvailability() {
@@ -81,38 +93,54 @@
     submitBtn.disabled = isSubmitting || !getTurnstileToken();
   }
 
-  function bindTurnstileInput(input) {
-    input.addEventListener("change", updateSubmitAvailability);
-    input.addEventListener("input", updateSubmitAvailability);
-    updateSubmitAvailability();
-  }
-
-  function watchTurnstileResponse() {
-    var input = form.querySelector('input[name="cf-turnstile-response"]');
-    if (input) {
-      bindTurnstileInput(input);
-      return;
-    }
-
-    var observer = new MutationObserver(function () {
-      input = form.querySelector('input[name="cf-turnstile-response"]');
-      if (!input) return;
-      observer.disconnect();
-      bindTurnstileInput(input);
-    });
-
-    observer.observe(form, { childList: true, subtree: true });
-  }
-
   function resetTurnstile() {
-    if (window.turnstile && typeof window.turnstile.reset === "function") {
+    turnstileToken = "";
+    if (window.turnstile && turnstileWidgetId != null) {
       try {
-        window.turnstile.reset();
+        window.turnstile.reset(turnstileWidgetId);
       } catch (e) {
         /* ignore */
       }
     }
     updateSubmitAvailability();
+  }
+
+  function renderTurnstile() {
+    var el = document.getElementById("contactTurnstile");
+    if (!el || !window.turnstile || !siteKey) return;
+    el.innerHTML = "";
+    try {
+      turnstileWidgetId = window.turnstile.render(el, {
+        sitekey: siteKey,
+        theme: "dark",
+        callback: function (token) {
+          turnstileToken = token || "";
+          clearStatus();
+          updateSubmitAvailability();
+        },
+        "expired-callback": function () {
+          turnstileToken = "";
+          updateSubmitAvailability();
+        },
+      });
+    } catch (e) {
+      console.error("[contact-form] Turnstile render failed", e);
+    }
+  }
+
+  function waitTurnstileReady(cb, attempts) {
+    var n = attempts != null ? attempts : 80;
+    if (window.turnstile) {
+      cb();
+      return;
+    }
+    if (n <= 0) {
+      setStatus("error", "Could not load verification. Refresh the page and try again.");
+      return;
+    }
+    setTimeout(function () {
+      waitTurnstileReady(cb, n - 1);
+    }, 100);
   }
 
   function parseResponseBody(text) {
@@ -146,15 +174,21 @@
     return ok;
   }
 
-  function boot() {
+  function initForm() {
     if (!endpoint) {
       setStatus("error", "Contact endpoint is not configured. Set TM_CONTACT_CONFIG.endpoint in js/contact-config.js.");
       if (submitBtn) submitBtn.disabled = true;
       return;
     }
 
+    if (!siteKey) {
+      setStatus("error", "Turnstile site key is missing. Add your public site key to js/contact-config.js.");
+      if (submitBtn) submitBtn.disabled = true;
+      return;
+    }
+
     if (submitBtn) submitBtn.disabled = true;
-    watchTurnstileResponse();
+    waitTurnstileReady(renderTurnstile);
   }
 
   form.addEventListener("submit", async function (e) {
@@ -246,8 +280,8 @@
   });
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot);
+    document.addEventListener("DOMContentLoaded", initForm);
   } else {
-    boot();
+    initForm();
   }
 })();
