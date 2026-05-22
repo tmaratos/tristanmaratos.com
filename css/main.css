@@ -1202,107 +1202,17 @@ select:-webkit-autofill:focus {
   overflow: hidden;
 }
 
-.turnstile-shell {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  padding: 0.75rem 0.9rem 0.8rem;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(125, 211, 252, 0.24);
-  background: rgba(4, 10, 28, 0.55);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 0 22px rgba(56, 189, 248, 0.08);
-}
-
-.turnstile-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.35rem 0.75rem;
-}
-
-.turnstile-label {
-  font-size: 0.72rem;
-  font-weight: 650;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.turnstile-badge {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
-  padding: 0.2rem 0.45rem;
-  border-radius: 6px;
-  border: 1px solid rgba(125, 211, 252, 0.18);
-  background: rgba(6, 14, 28, 0.65);
-}
-
-.turnstile-mount {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+.contact-form .cf-turnstile {
+  display: block;
   width: 100%;
-  min-width: 0;
-  min-height: 0;
-  overflow: hidden;
-}
-
-.turnstile-mount.has-widget {
   min-height: 65px;
+  margin: 0.15rem 0 0.35rem;
 }
 
-.turnstile-mount > div,
-.turnstile-mount iframe {
+.contact-form .cf-turnstile > div,
+.contact-form .cf-turnstile iframe {
   display: block;
   max-width: 100%;
-}
-
-.turnstile-shell.is-ready .turnstile-mount,
-.turnstile-shell.is-verified .turnstile-mount {
-  filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.14));
-}
-
-.turnstile-foot {
-  margin: 0;
-  padding-top: 0.15rem;
-  border-top: 1px solid rgba(125, 211, 252, 0.12);
-  font-size: 0.8rem;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.52);
-  max-width: 52ch;
-}
-
-.turnstile-notice {
-  width: 100%;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(248, 113, 113, 0.45);
-  background: rgba(24, 8, 12, 0.55);
-  padding: 0.5rem 0.65rem;
-  font-size: 0.84rem;
-  color: rgba(254, 202, 202, 0.95);
-  line-height: 1.45;
-}
-
-.turnstile-notice[hidden] {
-  display: none;
-}
-
-.turnstile-shell.is-error {
-  border-color: rgba(248, 113, 113, 0.35);
-}
-
-.turnstile-shell.is-verified .turnstile-badge {
-  color: rgba(167, 243, 208, 0.9);
-  border-color: rgba(52, 211, 153, 0.35);
-  background: rgba(6, 28, 22, 0.55);
-}
-
-.turnstile-shell.is-verified .turnstile-foot {
-  color: rgba(167, 243, 208, 0.72);
 }
 
 .form-actions {
