@@ -4,5 +4,5 @@
  */
 window.TM_CONTACT_CONFIG = {
   endpoint: "https://tristan-contact-worker.aviationministries.workers.dev/",
-  turnstileSiteKey: "0x4AAAAAAADT8lIuIWHxycujC",
+  turnstileSiteKey: "0x4AAAAAAAX8M_4crN534x3G",
 };
