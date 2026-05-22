@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="/css/ops-ui.css" />
     <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
     <script
-      src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
       defer
-      data-tm-turnstile="1"
     ></script>
   </head>
   <body>
@@ -114,22 +114,11 @@
               <textarea class="form-textarea" id="contact-message" name="message" required maxlength="6000"></textarea>
             </div>
 
-            <div id="tm-turnstile-shell" class="turnstile-shell is-loading" aria-live="polite">
-              <div class="turnstile-head">
-                <span class="turnstile-label">Human verification</span>
-                <span class="turnstile-badge">Cloudflare Turnstile</span>
-              </div>
-              <div id="tm-turnstile-mount" class="turnstile-mount" aria-label="Security verification"></div>
-              <div
-                id="tm-turnstile-notice"
-                class="turnstile-notice"
-                role="alert"
-                hidden
-              ></div>
-              <p class="turnstile-foot">
-                Complete the check above before sending. Your message is delivered over TLS after verification.
-              </p>
-            </div>
+            <div
+              class="cf-turnstile"
+              data-sitekey="0x4AAAAAAADT8lIuIWHxycujC"
+              data-theme="dark"
+            ></div>
 
             <div class="form-actions">
               <button
@@ -138,7 +127,6 @@
                 id="tm-contact-submit"
                 aria-busy="false"
                 disabled
-                aria-describedby="tm-turnstile-shell"
               >
                 <span class="btn-spinner" aria-hidden="true"></span>
                 <span class="btn-label">Send message</span>
