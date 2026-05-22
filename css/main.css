@@ -1202,16 +1202,18 @@ select:-webkit-autofill:focus {
   overflow: hidden;
 }
 
-.contact-form .cf-turnstile {
+#contactTurnstile {
   display: block;
   width: 100%;
   min-height: 65px;
-  margin: 0.15rem 0 0.35rem;
+  margin: 0.2rem 0 0.45rem;
 }
 
-.contact-form .cf-turnstile > div,
-.contact-form .cf-turnstile iframe {
+#contactTurnstile > div,
+#contactTurnstile iframe {
   display: block;
+  visibility: visible;
+  opacity: 1;
   max-width: 100%;
 }
 
