@@ -6,13 +6,10 @@
 
   var cfg = window.TM_CONTACT_CONFIG || {};
   var endpoint = String(cfg.endpoint || "").trim();
-  var siteKey = String(cfg.turnstileSiteKey || "0x4AAAAAAADT8lIuIWHxycujC").trim();
 
   var statusEl = document.getElementById("tm-contact-status");
   var submitBtn = form.querySelector('button[type="submit"]');
   var btnLabel = submitBtn ? submitBtn.querySelector(".btn-label") : null;
-  var turnstileWidgetId = null;
-  var turnstileToken = "";
   var isSubmitting = false;
 
   var MSG_MISSING = "Complete the verification challenge before sending.";
@@ -77,15 +74,8 @@
   }
 
   function getTurnstileToken() {
-    if (turnstileToken) return turnstileToken;
-    if (window.turnstile && turnstileWidgetId != null) {
-      try {
-        return window.turnstile.getResponse(turnstileWidgetId) || "";
-      } catch (e) {
-        return "";
-      }
-    }
-    return "";
+    var el = document.querySelector('[name="cf-turnstile-response"]');
+    return el && el.value ? String(el.value).trim() : "";
   }
 
   function updateSubmitAvailability() {
@@ -94,10 +84,9 @@
   }
 
   function resetTurnstile() {
-    turnstileToken = "";
-    if (window.turnstile && turnstileWidgetId != null) {
+    if (window.turnstile && typeof window.turnstile.reset === "function") {
       try {
-        window.turnstile.reset(turnstileWidgetId);
+        window.turnstile.reset();
       } catch (e) {
         /* ignore */
       }
@@ -105,42 +94,25 @@
     updateSubmitAvailability();
   }
 
-  function renderTurnstile() {
-    var el = document.getElementById("contactTurnstile");
-    if (!el || !window.turnstile || !siteKey) return;
-    el.innerHTML = "";
-    try {
-      turnstileWidgetId = window.turnstile.render(el, {
-        sitekey: siteKey,
-        theme: "dark",
-        callback: function (token) {
-          turnstileToken = token || "";
-          clearStatus();
-          updateSubmitAvailability();
-        },
-        "expired-callback": function () {
-          turnstileToken = "";
-          updateSubmitAvailability();
-        },
-      });
-    } catch (e) {
-      console.error("[contact-form] Turnstile render failed", e);
+  function watchTurnstileResponse() {
+    var input = document.querySelector('[name="cf-turnstile-response"]');
+    if (input) {
+      input.addEventListener("change", updateSubmitAvailability);
+      input.addEventListener("input", updateSubmitAvailability);
+      updateSubmitAvailability();
+      return;
     }
-  }
 
-  function waitTurnstileReady(cb, attempts) {
-    var n = attempts != null ? attempts : 80;
-    if (window.turnstile && typeof window.turnstile.render === "function") {
-      cb();
-      return;
-    }
-    if (n <= 0) {
-      setStatus("error", "Verification could not load. Check Turnstile hostnames for this domain, then refresh.");
-      return;
-    }
-    setTimeout(function () {
-      waitTurnstileReady(cb, n - 1);
-    }, 100);
+    var observer = new MutationObserver(function () {
+      input = document.querySelector('[name="cf-turnstile-response"]');
+      if (!input) return;
+      observer.disconnect();
+      input.addEventListener("change", updateSubmitAvailability);
+      input.addEventListener("input", updateSubmitAvailability);
+      updateSubmitAvailability();
+    });
+
+    observer.observe(form, { childList: true, subtree: true });
   }
 
   function parseResponseBody(text) {
@@ -181,14 +153,8 @@
       return;
     }
 
-    if (!siteKey) {
-      setStatus("error", "Turnstile site key is missing in js/contact-config.js.");
-      if (submitBtn) submitBtn.disabled = true;
-      return;
-    }
-
     if (submitBtn) submitBtn.disabled = true;
-    waitTurnstileReady(renderTurnstile);
+    watchTurnstileResponse();
   }
 
   form.addEventListener("submit", async function (e) {
