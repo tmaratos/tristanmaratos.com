@@ -1215,6 +1215,7 @@ select:-webkit-autofill:focus {
   visibility: visible;
   opacity: 1;
   max-width: 100%;
+  min-height: 65px;
 }
 
 .form-actions {

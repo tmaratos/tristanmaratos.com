@@ -6,7 +6,7 @@
 
   var cfg = window.TM_CONTACT_CONFIG || {};
   var endpoint = String(cfg.endpoint || "").trim();
-  var siteKey = String(cfg.turnstileSiteKey || "").trim();
+  var siteKey = String(cfg.turnstileSiteKey || "0x4AAAAAAADT8lIuIWHxycujC").trim();
 
   var statusEl = document.getElementById("tm-contact-status");
   var submitBtn = form.querySelector('button[type="submit"]');
@@ -130,12 +130,12 @@
 
   function waitTurnstileReady(cb, attempts) {
     var n = attempts != null ? attempts : 80;
-    if (window.turnstile) {
+    if (window.turnstile && typeof window.turnstile.render === "function") {
       cb();
       return;
     }
     if (n <= 0) {
-      setStatus("error", "Could not load verification. Refresh the page and try again.");
+      setStatus("error", "Verification could not load. Check Turnstile hostnames for this domain, then refresh.");
       return;
     }
     setTimeout(function () {
@@ -182,7 +182,7 @@
     }
 
     if (!siteKey) {
-      setStatus("error", "Turnstile site key is missing. Add your public site key to js/contact-config.js.");
+      setStatus("error", "Turnstile site key is missing in js/contact-config.js.");
       if (submitBtn) submitBtn.disabled = true;
       return;
     }
