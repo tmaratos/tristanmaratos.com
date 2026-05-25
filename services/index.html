@@ -32,7 +32,16 @@
         </p>
       </header>
 
-      <section class="section" style="padding-top: 0" aria-labelledby="services-offered-title">
+      <nav class="services-subnav" aria-label="Services page sections">
+        <ul class="services-subnav-list">
+          <li><a class="services-subnav-link" href="#services" data-subnav>Services</a></li>
+          <li><a class="services-subnav-link" href="#pricing" data-subnav>Pricing</a></li>
+          <li><a class="services-subnav-link" href="#approach" data-subnav>Approach</a></li>
+          <li><a class="services-subnav-link" href="#process" data-subnav>Process</a></li>
+        </ul>
+      </nav>
+
+      <section class="section" id="services" style="padding-top: 0" aria-labelledby="services-offered-title">
         <div class="section-head">
           <div>
             <p class="eyebrow">What I build</p>
@@ -147,11 +156,11 @@
         </article>
       </section>
 
-      <section class="section" aria-labelledby="approach-title">
+      <section class="section" aria-labelledby="principles-title">
         <div class="section-head">
           <div>
             <p class="eyebrow">How I work</p>
-            <h2 id="approach-title" class="section-title">What I prioritize</h2>
+            <h2 id="principles-title" class="section-title">What I prioritize</h2>
           </div>
         </div>
         <div class="services-principles">
@@ -182,7 +191,7 @@
         </div>
       </section>
 
-      <section class="section pricing-section" aria-labelledby="pricing-title">
+      <section class="section pricing-section" id="pricing" aria-labelledby="pricing-title">
         <div class="section-head">
           <div>
             <p class="eyebrow">Pricing</p>
@@ -547,38 +556,88 @@
             </div>
           </div>
 
-          <article class="panel panel-pad services-note services-note--church pricing-church-note">
-            <p class="eyebrow services-note-label">Community mission</p>
-            <h3 class="services-note-title">Churches &amp; ministry organizations</h3>
-            <p class="services-note-text">
-              Churches, ministries, and community focused organizations receive discounted pricing whenever possible.
-              If your project supports a meaningful mission, feel free to reach out and ask.
-            </p>
-          </article>
+          <div class="pricing-footnotes">
+            <article class="panel panel-pad services-note services-note--church pricing-church-note">
+              <p class="eyebrow services-note-label">Community mission</p>
+              <h3 class="services-note-title">Churches &amp; ministry organizations</h3>
+              <p class="services-note-text">
+                Churches, ministries, and community focused organizations receive discounted pricing whenever possible.
+                If your project supports a meaningful mission, feel free to reach out and ask.
+              </p>
+            </article>
 
-          <p class="pricing-disclaimer">
-            Final pricing depends on project size, design complexity, number of pages, functionality, integrations,
-            admin requirements, database needs, testing requirements, and long-term maintainability. I reserve the
-            right to accept or decline projects based on scope, availability, project fit, and alignment with my values
-            and business direction.
-          </p>
+            <p class="pricing-disclaimer">
+              Final pricing depends on project size, design complexity, number of pages, functionality, integrations,
+              admin requirements, database needs, testing requirements, and long-term maintainability. I reserve the
+              right to accept or decline projects based on scope, availability, project fit, and alignment with my values
+              and business direction.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section class="section custom-dev-section" aria-labelledby="custom-dev-title">
+      <section class="section approach-section" id="approach" aria-labelledby="approach-title">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Approach</p>
-            <h2 id="custom-dev-title" class="section-title">How custom development differs</h2>
+            <p class="eyebrow">Why custom</p>
+            <h2 id="approach-title" class="section-title">How this compares</h2>
+            <p class="approach-lead">
+              Three views of where custom development fits relative to other options.
+            </p>
+          </div>
+        </div>
+
+        <div class="approach-tabs">
+          <div class="approach-tablist" role="tablist" aria-label="Approach comparison views">
+            <button
+              type="button"
+              role="tab"
+              id="approach-tab-differs"
+              class="approach-tab"
+              aria-controls="approach-panel-differs"
+              aria-selected="true"
+              tabindex="0"
+            >
+              How it differs
+            </button>
+            <button
+              type="button"
+              role="tab"
+              id="approach-tab-industry"
+              class="approach-tab"
+              aria-controls="approach-panel-industry"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              Industry pricing
+            </button>
+            <button
+              type="button"
+              role="tab"
+              id="approach-tab-positioning"
+              class="approach-tab"
+              aria-controls="approach-panel-positioning"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              Positioning
+            </button>
+          </div>
+
+          <div
+            id="approach-panel-differs"
+            class="approach-panel approach-panel--differs"
+            role="tabpanel"
+            aria-labelledby="approach-tab-differs"
+            tabindex="0"
+          >
             <p class="custom-dev-intro">
               Many businesses today use DIY website builders or template based platforms to get online quickly. Those
               solutions can work well for simple needs, but custom built websites provide greater flexibility,
               scalability, performance, and long term customization.
             </p>
-          </div>
-        </div>
 
-        <div class="custom-dev-grid">
+            <div class="custom-dev-grid">
           <article class="panel panel-pad custom-dev-col">
             <header class="custom-dev-col-head">
               <p class="custom-dev-col-eyebrow">Option 01</p>
@@ -700,73 +759,83 @@
             </tbody>
           </table>
         </div>
-      </section>
+          </div>
 
-      <section class="section industry-pricing-section" aria-labelledby="industry-pricing-title">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Market reality</p>
-            <h2 id="industry-pricing-title" class="section-title">Industry pricing context</h2>
+          <div
+            id="approach-panel-industry"
+            class="approach-panel approach-panel--industry"
+            role="tabpanel"
+            aria-labelledby="approach-tab-industry"
+            tabindex="0"
+            hidden
+          >
             <p class="industry-pricing-intro">
               Professional custom websites and administrative systems can vary significantly depending on design
               complexity, integrations, backend systems, workflows, and infrastructure requirements.
             </p>
+
+            <div class="pricing-table-wrap">
+              <table class="pricing-table industry-pricing-table">
+                <caption class="pricing-table-caption">Typical industry ranges</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Project type</th>
+                    <th scope="col">Typical industry range</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Basic business website</th>
+                    <td class="pricing-cell-price">$3,000 to $10,000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Professional business website</th>
+                    <td class="pricing-cell-price">$8,000 to $25,000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">CMS enabled business website</th>
+                    <td class="pricing-cell-price">$8,000 to $20,000+</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ecommerce website</th>
+                    <td class="pricing-cell-price">$10,000 to $50,000+</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Custom operational platforms and web apps</th>
+                    <td class="pricing-cell-price">$20,000 to $150,000+</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="industry-pricing-disclaimer">
+              Pricing varies significantly based on functionality, integrations, infrastructure requirements, workflow
+              complexity, and long term maintainability.
+            </p>
+          </div>
+
+          <div
+            id="approach-panel-positioning"
+            class="approach-panel approach-panel--positioning"
+            role="tabpanel"
+            aria-labelledby="approach-tab-positioning"
+            tabindex="0"
+            hidden
+          >
+            <article class="panel panel-pad positioning-card">
+              <p class="eyebrow">Positioning</p>
+              <h2 class="positioning-title">Custom built without large agency overhead</h2>
+              <p class="positioning-text">
+                The goal is to provide modern, high quality custom websites and systems with direct developer
+                communication, flexible project structuring, and scalable long term solutions, without the overhead
+                commonly associated with larger agencies.
+              </p>
+            </article>
           </div>
         </div>
-
-        <div class="pricing-table-wrap">
-          <table class="pricing-table industry-pricing-table">
-            <caption class="pricing-table-caption">Typical industry ranges</caption>
-            <thead>
-              <tr>
-                <th scope="col">Project type</th>
-                <th scope="col">Typical industry range</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Basic business website</th>
-                <td class="pricing-cell-price">$3,000 to $10,000</td>
-              </tr>
-              <tr>
-                <th scope="row">Professional business website</th>
-                <td class="pricing-cell-price">$8,000 to $25,000</td>
-              </tr>
-              <tr>
-                <th scope="row">CMS enabled business website</th>
-                <td class="pricing-cell-price">$8,000 to $20,000+</td>
-              </tr>
-              <tr>
-                <th scope="row">Ecommerce website</th>
-                <td class="pricing-cell-price">$10,000 to $50,000+</td>
-              </tr>
-              <tr>
-                <th scope="row">Custom operational platforms and web apps</th>
-                <td class="pricing-cell-price">$20,000 to $150,000+</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="industry-pricing-disclaimer">
-          Pricing varies significantly based on functionality, integrations, infrastructure requirements, workflow
-          complexity, and long term maintainability.
-        </p>
       </section>
 
-      <section class="section positioning-section" aria-labelledby="positioning-title">
-        <article class="panel panel-pad positioning-card">
-          <p class="eyebrow">Positioning</p>
-          <h2 id="positioning-title" class="positioning-title">Custom built without large agency overhead</h2>
-          <p class="positioning-text">
-            The goal is to provide modern, high quality custom websites and systems with direct developer
-            communication, flexible project structuring, and scalable long term solutions, without the overhead
-            commonly associated with larger agencies.
-          </p>
-        </article>
-      </section>
-
-      <section class="section" aria-labelledby="process-title">
+      <section class="section" id="process" aria-labelledby="process-title">
         <div class="section-head">
           <div>
             <p class="eyebrow">From idea to launch</p>
@@ -824,6 +893,53 @@
       </section>
     </main>
     <div id="site-footer"></div>
+    <script>
+      (function () {
+        var tablist = document.querySelector('.approach-tablist');
+        if (!tablist) return;
+        var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+        if (!tabs.length) return;
+
+        function activate(tab, setFocus) {
+          tabs.forEach(function (t) {
+            var selected = t === tab;
+            t.setAttribute('aria-selected', selected ? 'true' : 'false');
+            t.setAttribute('tabindex', selected ? '0' : '-1');
+            var panel = document.getElementById(t.getAttribute('aria-controls'));
+            if (panel) {
+              if (selected) {
+                panel.removeAttribute('hidden');
+              } else {
+                panel.setAttribute('hidden', '');
+              }
+            }
+          });
+          if (setFocus) tab.focus();
+        }
+
+        tabs.forEach(function (tab, idx) {
+          tab.addEventListener('click', function () {
+            activate(tab, false);
+          });
+          tab.addEventListener('keydown', function (e) {
+            var key = e.key;
+            if (key === 'ArrowRight' || key === 'ArrowDown') {
+              e.preventDefault();
+              activate(tabs[(idx + 1) % tabs.length], true);
+            } else if (key === 'ArrowLeft' || key === 'ArrowUp') {
+              e.preventDefault();
+              activate(tabs[(idx - 1 + tabs.length) % tabs.length], true);
+            } else if (key === 'Home') {
+              e.preventDefault();
+              activate(tabs[0], true);
+            } else if (key === 'End') {
+              e.preventDefault();
+              activate(tabs[tabs.length - 1], true);
+            }
+          });
+        });
+      })();
+    </script>
     <script src="/js/chunks.js" defer></script>
     <script src="/js/site.js" defer></script>
   </body>

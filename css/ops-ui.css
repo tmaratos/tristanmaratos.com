@@ -1412,6 +1412,29 @@ main {
   }
 }
 
+@media (min-width: 1180px) {
+  .services-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Slightly tighter tile padding on desktop for denser grids */
+@media (min-width: 1024px) {
+  .services-page .service-tile {
+    padding: 1.05rem 1.15rem 1.15rem;
+  }
+
+  .services-page .service-tile h3 {
+    font-size: 0.98rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .services-page .service-tile p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+}
+
 .services-page .service-tile {
   height: 100%;
 }
@@ -1445,6 +1468,25 @@ main {
 
 .services-deploy-list {
   margin: 0;
+}
+
+@media (min-width: 720px) {
+  .services-deploy-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.5rem;
+    row-gap: 0;
+  }
+
+  .services-deploy-list .deploy-row {
+    padding: 0.65rem 0;
+  }
+
+  /* In a 2-col layout, the last two visible rows should drop the bottom border */
+  .services-deploy-list .deploy-row:nth-last-child(-n + 2):nth-child(odd),
+  .services-deploy-list .deploy-row:last-child {
+    border-bottom: none;
+  }
 }
 
 .services-pricing-grid {
@@ -1671,6 +1713,21 @@ main {
   grid-template-rows: auto auto 1fr auto;
   gap: 0.85rem;
   transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+@media (min-width: 1100px) {
+  .buyer-guide-card {
+    gap: 0.65rem;
+    padding: 1.05rem 1.15rem 1.15rem;
+  }
+
+  .buyer-guide-prompt {
+    font-size: 0.98rem;
+  }
+
+  .buyer-guide-rec {
+    padding: 0.55rem 0.75rem;
+  }
 }
 
 @media (hover: hover) {
@@ -1934,12 +1991,12 @@ main {
 
 .pricing-stack {
   display: grid;
-  gap: 2.4rem;
+  gap: 2rem;
 }
 
 @media (min-width: 720px) {
   .pricing-stack {
-    gap: 3.25rem;
+    gap: 2.5rem;
   }
 }
 
@@ -2225,6 +2282,20 @@ main {
   line-height: 1.4;
 }
 
+/* Footnotes wrapper: stacks on mobile, 2 columns on wider screens */
+.pricing-footnotes {
+  display: grid;
+  gap: 1.1rem;
+}
+
+@media (min-width: 860px) {
+  .pricing-footnotes {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+}
+
 /* Church note inside pricing */
 .pricing-church-note {
   margin: 0;
@@ -2480,4 +2551,215 @@ main {
   color: var(--text-soft);
   font-size: 1.02rem;
   line-height: 1.65;
+}
+
+/* ===== Services sub-nav (sticky in-page pill nav) ===== */
+:root {
+  --services-subnav-h: 52px;
+}
+
+.services-subnav {
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 50;
+  margin: 0.25rem 0 1.25rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(80, 140, 255, 0.18);
+  background: rgba(4, 10, 22, 0.78);
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.services-subnav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.services-subnav-list::-webkit-scrollbar {
+  display: none;
+}
+
+.services-subnav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-muted);
+  white-space: nowrap;
+  position: relative;
+  transition: color 0.2s var(--ease-ui), background 0.2s var(--ease-ui);
+}
+
+.services-subnav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.95rem;
+  right: 0.95rem;
+  bottom: 0.3rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent-cyan), transparent);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.45);
+  opacity: 0;
+  transform: scaleX(0.6);
+  transform-origin: center;
+  transition: opacity 0.2s var(--ease-ui), transform 0.2s var(--ease-ui);
+}
+
+.services-subnav-link:hover,
+.services-subnav-link:focus-visible {
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.06);
+  outline: none;
+}
+
+.services-subnav-link:hover::after,
+.services-subnav-link:focus-visible::after,
+.services-subnav-link[aria-current="true"]::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.services-subnav-link[aria-current="true"] {
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+@media (max-width: 639px) {
+  .services-subnav {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    border-radius: 14px;
+  }
+
+  .services-subnav-link {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* Sections under the sub-nav need extra scroll offset (header + sub-nav) */
+.services-page .section {
+  scroll-margin-top: calc(var(--nav-h) + var(--services-subnav-h) + 16px);
+}
+
+/* ===== Approach tabs ===== */
+.approach-section {
+  padding-top: 2.5rem;
+}
+
+.approach-tabs {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.approach-tablist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(80, 140, 255, 0.18);
+  background: linear-gradient(150deg, rgba(8, 18, 36, 0.72), rgba(5, 12, 28, 0.6));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  align-self: start;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.approach-tablist::-webkit-scrollbar {
+  display: none;
+}
+
+.approach-tab {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s var(--ease-ui), background 0.2s var(--ease-ui),
+    border-color 0.2s var(--ease-ui), box-shadow 0.2s var(--ease-ui);
+}
+
+.approach-tab:hover {
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.06);
+}
+
+.approach-tab:focus-visible {
+  outline: none;
+  color: var(--accent-cyan);
+  border-color: rgba(96, 165, 250, 0.45);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.18);
+}
+
+.approach-tab[aria-selected="true"] {
+  color: #e0f2fe;
+  background: linear-gradient(145deg, rgba(56, 189, 248, 0.16), rgba(96, 165, 250, 0.1));
+  border-color: rgba(96, 165, 250, 0.55);
+  box-shadow: 0 0 22px rgba(59, 130, 246, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.approach-panel {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.approach-panel[hidden] {
+  display: none;
+}
+
+.approach-panel:focus-visible {
+  outline: none;
+}
+
+.approach-lead {
+  margin: 0.7rem 0 0;
+  max-width: 80ch;
+  color: var(--text-soft);
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+/* Within the differs panel, restore the legacy custom-dev spacing without reintroducing the old section-level margins */
+.approach-panel--differs .custom-dev-intro {
+  margin-top: 0;
+}
+
+.approach-panel--differs .custom-dev-grid {
+  margin-bottom: 0;
+}
+
+.approach-panel--industry .industry-pricing-disclaimer {
+  margin-top: 0;
+}
+
+.approach-panel--positioning .positioning-card {
+  margin: 0 auto;
 }
