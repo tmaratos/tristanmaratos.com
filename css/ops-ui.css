@@ -2763,3 +2763,166 @@ main {
 .approach-panel--positioning .positioning-card {
   margin: 0 auto;
 }
+
+/* ===== Buyer guide interactive scroll-and-highlight ===== */
+.buyer-guide-card {
+  cursor: pointer;
+  grid-template-rows: auto auto 1fr auto auto;
+}
+
+.buyer-guide-card:focus {
+  outline: none;
+}
+
+.buyer-guide-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: inherit;
+}
+
+@media (hover: hover) {
+  .buyer-guide-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(96, 165, 250, 0.42);
+    box-shadow: 0 0 36px rgba(59, 130, 246, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+}
+
+.buyer-guide-cta {
+  align-self: end;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.15rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(96, 165, 250, 0.32);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(96, 165, 250, 0.14));
+  color: rgba(226, 240, 255, 0.96);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.buyer-guide-cta-arrow {
+  display: inline-block;
+  transition: transform 0.22s ease;
+}
+
+@media (hover: hover) {
+  .buyer-guide-card:hover .buyer-guide-cta,
+  .buyer-guide-cta:hover {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(96, 165, 250, 0.22));
+    border-color: rgba(125, 200, 255, 0.55);
+    box-shadow: 0 0 22px rgba(56, 189, 248, 0.22);
+  }
+
+  .buyer-guide-card:hover .buyer-guide-cta-arrow,
+  .buyer-guide-cta:hover .buyer-guide-cta-arrow {
+    transform: translateX(2px);
+  }
+}
+
+.buyer-guide-cta:focus {
+  outline: none;
+}
+
+.buyer-guide-cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Pulse highlight applied to scroll target packages */
+@keyframes pricingPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(96, 165, 250, 0);
+    border-color: var(--panel-border, rgba(80, 140, 255, 0.18));
+    background-color: transparent;
+  }
+  12% {
+    box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.28), 0 0 38px rgba(56, 189, 248, 0.28);
+    border-color: rgba(125, 200, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.22), 0 0 32px rgba(56, 189, 248, 0.22);
+    border-color: rgba(125, 200, 255, 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(96, 165, 250, 0);
+    border-color: var(--panel-border, rgba(80, 140, 255, 0.18));
+  }
+}
+
+.pricing-pulse {
+  animation: pricingPulse 2.2s ease-out 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Table row pulse uses background tint since rows can't reliably take box-shadow */
+@keyframes pricingPulseRow {
+  0% {
+    background-color: transparent;
+  }
+  12% {
+    background-color: rgba(56, 189, 248, 0.18);
+  }
+  60% {
+    background-color: rgba(56, 189, 248, 0.08);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+tr.pricing-pulse {
+  animation: pricingPulseRow 2.2s ease-out 1;
+}
+
+tr.pricing-pulse > th,
+tr.pricing-pulse > td {
+  transition: background-color 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes pricingPulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(96, 165, 250, 0);
+      border-color: var(--panel-border, rgba(80, 140, 255, 0.18));
+    }
+    10%,
+    90% {
+      box-shadow: 0 0 0 2px rgba(125, 200, 255, 0.55);
+      border-color: rgba(125, 200, 255, 0.7);
+    }
+  }
+
+  @keyframes pricingPulseRow {
+    0%,
+    100% {
+      background-color: transparent;
+    }
+    10%,
+    90% {
+      background-color: rgba(56, 189, 248, 0.14);
+    }
+  }
+
+  .pricing-pulse,
+  tr.pricing-pulse {
+    animation-duration: 2s;
+    animation-timing-function: linear;
+  }
+
+  .buyer-guide-cta,
+  .buyer-guide-cta-arrow,
+  .buyer-guide-card {
+    transition: none;
+  }
+}

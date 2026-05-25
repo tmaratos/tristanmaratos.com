@@ -210,7 +210,11 @@
             </header>
 
             <div class="buyer-guide-grid">
-              <article class="panel panel-pad buyer-guide-card">
+              <article
+                class="panel panel-pad buyer-guide-card"
+                tabindex="0"
+                data-buyer-target="package-small-business"
+              >
                 <span class="buyer-guide-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="4" width="18" height="16" rx="2" />
@@ -225,9 +229,21 @@
                   <span class="buyer-guide-rec-label">Recommended</span>
                   <span class="buyer-guide-rec-text">Starter or Professional Website</span>
                 </div>
+                <button
+                  type="button"
+                  class="buyer-guide-cta"
+                  aria-label="View recommended package: Small Business Website"
+                >
+                  <span class="buyer-guide-cta-label">View recommended</span>
+                  <span class="buyer-guide-cta-arrow" aria-hidden="true">&#x2192;</span>
+                </button>
               </article>
 
-              <article class="panel panel-pad buyer-guide-card">
+              <article
+                class="panel panel-pad buyer-guide-card"
+                tabindex="0"
+                data-buyer-target="package-modernization"
+              >
                 <span class="buyer-guide-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3 12a9 9 0 0 1 14.5-7.1L21 7" />
@@ -241,9 +257,22 @@
                   <span class="buyer-guide-rec-label">Recommended</span>
                   <span class="buyer-guide-rec-text">Website Redesign</span>
                 </div>
+                <button
+                  type="button"
+                  class="buyer-guide-cta"
+                  aria-label="View recommended package: Website Modernization Package"
+                >
+                  <span class="buyer-guide-cta-label">View recommended</span>
+                  <span class="buyer-guide-cta-arrow" aria-hidden="true">&#x2192;</span>
+                </button>
               </article>
 
-              <article class="panel panel-pad buyer-guide-card">
+              <article
+                class="panel panel-pad buyer-guide-card"
+                tabindex="0"
+                data-buyer-target="package-business-growth"
+                data-buyer-secondary="addon-cms"
+              >
                 <span class="buyer-guide-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 20h9" />
@@ -255,9 +284,22 @@
                   <span class="buyer-guide-rec-label">Recommended</span>
                   <span class="buyer-guide-rec-text">Website + CMS</span>
                 </div>
+                <button
+                  type="button"
+                  class="buyer-guide-cta"
+                  aria-label="View recommended package: Business Growth Package, with CMS add-on"
+                >
+                  <span class="buyer-guide-cta-label">View recommended</span>
+                  <span class="buyer-guide-cta-arrow" aria-hidden="true">&#x2192;</span>
+                </button>
               </article>
 
-              <article class="panel panel-pad buyer-guide-card">
+              <article
+                class="panel panel-pad buyer-guide-card"
+                tabindex="0"
+                data-buyer-target="package-operational-platform"
+                data-buyer-secondary="addon-admin-dashboard"
+              >
                 <span class="buyer-guide-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -271,6 +313,14 @@
                   <span class="buyer-guide-rec-label">Recommended</span>
                   <span class="buyer-guide-rec-text">Website + Administrative Dashboard</span>
                 </div>
+                <button
+                  type="button"
+                  class="buyer-guide-cta"
+                  aria-label="View recommended package: Operational Business Platform, with Administrative Dashboard add-on"
+                >
+                  <span class="buyer-guide-cta-label">View recommended</span>
+                  <span class="buyer-guide-cta-arrow" aria-hidden="true">&#x2192;</span>
+                </button>
               </article>
             </div>
           </div>
@@ -285,7 +335,11 @@
             </header>
 
             <div class="example-packages-grid">
-              <article class="panel panel-pad example-package" aria-labelledby="exp-pkg-1-title">
+              <article
+                class="panel panel-pad example-package"
+                id="package-small-business"
+                aria-labelledby="exp-pkg-1-title"
+              >
                 <header class="example-package-head">
                   <p class="example-package-eyebrow">Package 01</p>
                   <h3 class="example-package-title" id="exp-pkg-1-title">Small Business Website</h3>
@@ -309,6 +363,7 @@
 
               <article
                 class="panel panel-pad example-package example-package--featured"
+                id="package-business-growth"
                 aria-labelledby="exp-pkg-2-title"
               >
                 <span class="example-package-badge" aria-label="Most popular configuration">Most Popular</span>
@@ -336,7 +391,11 @@
                 </p>
               </article>
 
-              <article class="panel panel-pad example-package" aria-labelledby="exp-pkg-3-title">
+              <article
+                class="panel panel-pad example-package"
+                id="package-modernization"
+                aria-labelledby="exp-pkg-3-title"
+              >
                 <header class="example-package-head">
                   <p class="example-package-eyebrow">Package 03</p>
                   <h3 class="example-package-title" id="exp-pkg-3-title">Website Modernization Package</h3>
@@ -362,7 +421,11 @@
                 </p>
               </article>
 
-              <article class="panel panel-pad example-package" aria-labelledby="exp-pkg-4-title">
+              <article
+                class="panel panel-pad example-package"
+                id="package-operational-platform"
+                aria-labelledby="exp-pkg-4-title"
+              >
                 <header class="example-package-head">
                   <p class="example-package-eyebrow">Package 04</p>
                   <h3 class="example-package-title" id="exp-pkg-4-title">Operational Business Platform</h3>
@@ -417,8 +480,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><th scope="row">Content Management System (CMS)</th><td class="pricing-cell-price">+$750+</td></tr>
-                  <tr><th scope="row">Administrative Dashboard / System</th><td class="pricing-cell-price">+$3,000+</td></tr>
+                  <tr id="addon-cms"><th scope="row">Content Management System (CMS)</th><td class="pricing-cell-price">+$750+</td></tr>
+                  <tr id="addon-admin-dashboard"><th scope="row">Administrative Dashboard / System</th><td class="pricing-cell-price">+$3,000+</td></tr>
                   <tr><th scope="row">User Authentication System</th><td class="pricing-cell-price">+$500+</td></tr>
                   <tr><th scope="row">Role Based Permissions</th><td class="pricing-cell-price">+$500+</td></tr>
                   <tr><th scope="row">Database Integration</th><td class="pricing-cell-price">+$500+</td></tr>
@@ -938,6 +1001,80 @@
             }
           });
         });
+      })();
+    </script>
+    <script>
+      (function () {
+        "use strict";
+        var HIGHLIGHT_MS_PRIMARY = 2200;
+        var HIGHLIGHT_MS_SECONDARY = 2200;
+        var SECONDARY_DELAY_MS = 650;
+        var pulseClass = "pricing-pulse";
+
+        function prefersReducedMotion() {
+          return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        }
+
+        function pulse(el, duration) {
+          if (!el) return;
+          el.classList.remove(pulseClass);
+          void el.offsetWidth;
+          el.classList.add(pulseClass);
+          window.setTimeout(function () {
+            el.classList.remove(pulseClass);
+          }, duration);
+        }
+
+        function scrollToPricingTarget(targetId, secondaryTargetId) {
+          var target = targetId ? document.getElementById(targetId) : null;
+          if (!target) return;
+          var reduce = prefersReducedMotion();
+          try {
+            target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+          } catch (e) {
+            target.scrollIntoView();
+          }
+          pulse(target, HIGHLIGHT_MS_PRIMARY);
+
+          if (secondaryTargetId) {
+            var secondary = document.getElementById(secondaryTargetId);
+            if (secondary) {
+              window.setTimeout(function () {
+                pulse(secondary, HIGHLIGHT_MS_SECONDARY);
+              }, reduce ? 0 : SECONDARY_DELAY_MS);
+            }
+          }
+        }
+
+        window.__scrollToPricingTarget = scrollToPricingTarget;
+
+        function bindCards() {
+          var cards = document.querySelectorAll("[data-buyer-target]");
+          Array.prototype.forEach.call(cards, function (card) {
+            function activate(e) {
+              if (e.target && e.target.closest && e.target.closest("a")) return;
+              e.preventDefault();
+              scrollToPricingTarget(
+                card.getAttribute("data-buyer-target"),
+                card.getAttribute("data-buyer-secondary") || null
+              );
+            }
+            card.addEventListener("click", activate);
+            card.addEventListener("keydown", function (e) {
+              if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+                if (e.target === card) {
+                  activate(e);
+                }
+              }
+            });
+          });
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", bindCards);
+        } else {
+          bindCards();
+        }
       })();
     </script>
     <script src="/js/chunks.js" defer></script>
