@@ -205,7 +205,7 @@
               <p class="eyebrow">Start here</p>
               <h3 class="pricing-subtitle">What do you need?</h3>
               <p class="pricing-sublead">
-                Pick the path that best matches your goal. Each one points to the right package below.
+                Pick the path that best matches your goal. Each one points to the right part of the builder below.
               </p>
             </header>
 
@@ -213,7 +213,8 @@
               <article
                 class="panel panel-pad buyer-guide-card"
                 tabindex="0"
-                data-buyer-target="package-small-business"
+                data-buyer-target="base-website-builds"
+                data-buyer-highlights="item-starter-website,item-professional-website"
               >
                 <span class="buyer-guide-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -227,14 +228,14 @@
                 <p class="buyer-guide-prompt">I need a professional website</p>
                 <div class="buyer-guide-rec">
                   <span class="buyer-guide-rec-label">Recommended</span>
-                  <span class="buyer-guide-rec-text">Starter or Professional Website</span>
+                  <span class="buyer-guide-rec-text">Base Website Builds</span>
                 </div>
                 <button
                   type="button"
                   class="buyer-guide-cta"
-                  aria-label="View recommended package: Small Business Website"
+                  aria-label="See base website options"
                 >
-                  <span class="buyer-guide-cta-label">View recommended</span>
+                  <span class="buyer-guide-cta-label">See base website options</span>
                   <span class="buyer-guide-cta-arrow" aria-hidden="true">&#x2192;</span>
                 </button>
               </article>
@@ -242,7 +243,8 @@
               <article
                 class="panel panel-pad buyer-guide-card"
                 tabindex="0"
-                data-buyer-target="package-modernization"
+                data-buyer-target="redesign-modernization"
+                data-buyer-highlights="item-full-redesign"
               >
                 <span class="buyer-guide-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -255,14 +257,14 @@
                 <p class="buyer-guide-prompt">My current website looks outdated</p>
                 <div class="buyer-guide-rec">
                   <span class="buyer-guide-rec-label">Recommended</span>
-                  <span class="buyer-guide-rec-text">Website Redesign</span>
+                  <span class="buyer-guide-rec-text">Redesign &amp; Modernization</span>
                 </div>
                 <button
                   type="button"
                   class="buyer-guide-cta"
-                  aria-label="View recommended package: Website Modernization Package"
+                  aria-label="See redesign options"
                 >
-                  <span class="buyer-guide-cta-label">View recommended</span>
+                  <span class="buyer-guide-cta-label">See redesign options</span>
                   <span class="buyer-guide-cta-arrow" aria-hidden="true">&#x2192;</span>
                 </button>
               </article>
@@ -270,8 +272,8 @@
               <article
                 class="panel panel-pad buyer-guide-card"
                 tabindex="0"
-                data-buyer-target="package-business-growth"
-                data-buyer-secondary="addon-cms"
+                data-buyer-target="item-cms"
+                data-buyer-highlights="item-cms,item-database-integration"
               >
                 <span class="buyer-guide-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -282,14 +284,14 @@
                 <p class="buyer-guide-prompt">I want to update my own content</p>
                 <div class="buyer-guide-rec">
                   <span class="buyer-guide-rec-label">Recommended</span>
-                  <span class="buyer-guide-rec-text">Website + CMS</span>
+                  <span class="buyer-guide-rec-text">Content Management System</span>
                 </div>
                 <button
                   type="button"
                   class="buyer-guide-cta"
-                  aria-label="View recommended package: Business Growth Package, with CMS add-on"
+                  aria-label="See content management options"
                 >
-                  <span class="buyer-guide-cta-label">View recommended</span>
+                  <span class="buyer-guide-cta-label">See content management options</span>
                   <span class="buyer-guide-cta-arrow" aria-hidden="true">&#x2192;</span>
                 </button>
               </article>
@@ -297,8 +299,8 @@
               <article
                 class="panel panel-pad buyer-guide-card"
                 tabindex="0"
-                data-buyer-target="package-operational-platform"
-                data-buyer-secondary="addon-admin-dashboard"
+                data-buyer-target="item-admin-dashboard"
+                data-buyer-highlights="item-admin-dashboard,item-user-authentication,item-role-permissions,item-database-integration"
               >
                 <span class="buyer-guide-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -311,313 +313,337 @@
                 <p class="buyer-guide-prompt">I need staff, users, roles, or internal tools</p>
                 <div class="buyer-guide-rec">
                   <span class="buyer-guide-rec-label">Recommended</span>
-                  <span class="buyer-guide-rec-text">Website + Administrative Dashboard</span>
+                  <span class="buyer-guide-rec-text">Administrative Dashboard</span>
                 </div>
                 <button
                   type="button"
                   class="buyer-guide-cta"
-                  aria-label="View recommended package: Operational Business Platform, with Administrative Dashboard add-on"
+                  aria-label="See administrative system options"
                 >
-                  <span class="buyer-guide-cta-label">View recommended</span>
+                  <span class="buyer-guide-cta-label">See administrative system options</span>
                   <span class="buyer-guide-cta-arrow" aria-hidden="true">&#x2192;</span>
                 </button>
               </article>
             </div>
           </div>
 
-          <div class="pricing-subsection">
-            <header class="pricing-subhead">
-              <p class="eyebrow">Recommended bundles</p>
-              <h3 class="pricing-subtitle">Most common project packages</h3>
-              <p class="pricing-sublead">
-                Bundled configurations most clients land on. Each is a starting point, not a fixed contract.
+          <header class="alacarte-intro">
+            <p class="eyebrow">Pricing</p>
+            <h3 class="alacarte-intro-title">Build Your Website Package</h3>
+            <p class="alacarte-intro-lead">
+              Start with the website build that fits your needs, then add only the systems or enhancements your
+              project requires.
+            </p>
+          </header>
+
+          <section
+            id="base-website-builds"
+            class="alacarte-section"
+            aria-labelledby="alacarte-base-title"
+          >
+            <header class="alacarte-section-head">
+              <span class="alacarte-step-eyebrow">Step 1</span>
+              <h3 id="alacarte-base-title" class="alacarte-section-title">Choose a Base Website Build</h3>
+              <p class="alacarte-section-lead">
+                Pick the build that matches the scope of your project. Every base build can be extended with the
+                optional systems and enhancements below.
               </p>
             </header>
 
-            <div class="example-packages-grid">
-              <article
-                class="panel panel-pad example-package"
-                id="package-small-business"
-                aria-labelledby="exp-pkg-1-title"
-              >
-                <header class="example-package-head">
-                  <p class="example-package-eyebrow">Package 01</p>
-                  <h3 class="example-package-title" id="exp-pkg-1-title">Small Business Website</h3>
-                  <p class="example-package-price">Starting at <strong>$2,000+</strong></p>
+            <div class="alacarte-grid alacarte-grid--three">
+              <article id="item-starter-website" class="panel panel-pad alacarte-card">
+                <header class="alacarte-card-head">
+                  <h4 class="alacarte-card-title">Starter Website</h4>
+                  <p class="alacarte-card-price">Starting at <strong>$1,500+</strong></p>
                 </header>
-                <p class="example-package-summary">
-                  A polished, professional online presence built for small businesses and local organizations.
+                <p class="alacarte-card-bestfor">
+                  <span class="alacarte-card-bestfor-label">Best for</span> simple professional websites, small
+                  businesses, churches, contractors, restaurants, and local organizations.
                 </p>
-                <p class="example-package-bestfor">
-                  <span class="example-package-bestfor-label">Best for</span> contractors, small businesses, restaurants,
-                  churches, and local organizations.
-                </p>
-                <ul class="example-package-includes">
-                  <li>Starter Website tier</li>
+                <ul class="alacarte-card-bullets">
+                  <li>Custom modern website</li>
+                  <li>1 to 3 pages</li>
                   <li>Mobile responsive design</li>
                   <li>Contact form</li>
                   <li>Basic SEO structure</li>
-                  <li>Domain and DNS setup assistance</li>
+                  <li>Domain/DNS setup assistance</li>
                 </ul>
               </article>
 
-              <article
-                class="panel panel-pad example-package example-package--featured"
-                id="package-business-growth"
-                aria-labelledby="exp-pkg-2-title"
-              >
-                <span class="example-package-badge" aria-label="Most popular configuration">Most Popular</span>
-                <header class="example-package-head">
-                  <p class="example-package-eyebrow">Package 02</p>
-                  <h3 class="example-package-title" id="exp-pkg-2-title">Business Growth Package</h3>
-                  <p class="example-package-price">Starting at <strong>$3,500+</strong></p>
+              <article id="item-professional-website" class="panel panel-pad alacarte-card">
+                <header class="alacarte-card-head">
+                  <h4 class="alacarte-card-title">Professional Business Website</h4>
+                  <p class="alacarte-card-price">Starting at <strong>$2,300+</strong></p>
                 </header>
-                <p class="example-package-summary">
-                  A more substantial business website with branded sections, modern layouts, and editable content.
+                <p class="alacarte-card-bestfor">
+                  <span class="alacarte-card-bestfor-label">Best for</span> established businesses needing stronger
+                  branding, more content, and a more polished experience.
                 </p>
-                <p class="example-package-bestfor">
-                  <span class="example-package-bestfor-label">Best for</span> growing businesses, medical offices,
-                  service providers, and established local businesses.
-                </p>
-                <ul class="example-package-includes">
-                  <li>Professional Business Website tier</li>
+                <ul class="alacarte-card-bullets">
+                  <li>More detailed page structure</li>
                   <li>Stronger visual branding</li>
-                  <li>Advanced layouts and forms</li>
-                  <li>CMS integration</li>
-                  <li>Staging and launch testing</li>
+                  <li>Service or product sections</li>
+                  <li>Advanced layouts</li>
+                  <li>Expanded mobile optimization</li>
+                  <li>Staging/testing workflow</li>
                 </ul>
-                <p class="example-package-highlight">
-                  A strong balance between modern presentation and long-term maintainability.
-                </p>
               </article>
 
-              <article
-                class="panel panel-pad example-package"
-                id="package-modernization"
-                aria-labelledby="exp-pkg-3-title"
-              >
-                <header class="example-package-head">
-                  <p class="example-package-eyebrow">Package 03</p>
-                  <h3 class="example-package-title" id="exp-pkg-3-title">Website Modernization Package</h3>
-                  <p class="example-package-price">Starting at <strong>$4,000+</strong></p>
+              <article id="item-advanced-custom-website" class="panel panel-pad alacarte-card">
+                <header class="alacarte-card-head">
+                  <h4 class="alacarte-card-title">Advanced Custom Website</h4>
+                  <p class="alacarte-card-price">Starting at <strong>$5,000+</strong></p>
                 </header>
-                <p class="example-package-summary">
-                  A full redesign that brings an outdated website into a modern, mobile first experience.
+                <p class="alacarte-card-bestfor">
+                  <span class="alacarte-card-bestfor-label">Best for</span> larger custom websites, advanced layouts,
+                  integrations, and deeper planning.
                 </p>
-                <p class="example-package-bestfor">
-                  <span class="example-package-bestfor-label">Best for</span> outdated websites, older GoDaddy or Wix
-                  builds, and poor mobile experiences.
-                </p>
-                <ul class="example-package-includes">
-                  <li>Full website redesign</li>
-                  <li>Mobile first rebuild</li>
-                  <li>Navigation restructuring</li>
-                  <li>Performance optimization</li>
-                  <li>CMS integration</li>
-                  <li>Desktop and mobile testing</li>
+                <ul class="alacarte-card-bullets">
+                  <li>Larger custom site architecture</li>
+                  <li>Advanced visual design</li>
+                  <li>Complex sections</li>
+                  <li>Custom interaction design</li>
+                  <li>Advanced forms or integrations</li>
+                  <li>More extensive testing and launch support</li>
                 </ul>
-                <p class="example-package-highlight">
-                  Transform an aging website into a modern professional experience.
-                </p>
-              </article>
-
-              <article
-                class="panel panel-pad example-package"
-                id="package-operational-platform"
-                aria-labelledby="exp-pkg-4-title"
-              >
-                <header class="example-package-head">
-                  <p class="example-package-eyebrow">Package 04</p>
-                  <h3 class="example-package-title" id="exp-pkg-4-title">Operational Business Platform</h3>
-                  <p class="example-package-price">Starting at <strong>$7,500+</strong></p>
-                </header>
-                <p class="example-package-summary">
-                  A custom website paired with internal tools, user accounts, and operational infrastructure.
-                </p>
-                <p class="example-package-bestfor">
-                  <span class="example-package-bestfor-label">Best for</span> organizations managing staff, users,
-                  scheduling, or operational workflows.
-                </p>
-                <ul class="example-package-includes">
-                  <li>Advanced Custom Website tier</li>
-                  <li>Administrative dashboard</li>
-                  <li>User authentication and roles</li>
-                  <li>Database integration</li>
-                  <li>Internal management tools</li>
-                  <li>Protected administrative infrastructure</li>
-                </ul>
-                <p class="example-package-highlight">
-                  More than a website. A custom operational platform built around your workflow.
-                </p>
               </article>
             </div>
-          </div>
+          </section>
 
-          <p class="pricing-transition-note">
-            Most clients start with one of the packages above. Add-ons are used when the project needs editable
-            content, user accounts, dashboards, payments, scheduling, databases, or other custom functionality.
-          </p>
-
-          <div class="pricing-subsection">
-            <header class="pricing-subhead">
-              <p class="eyebrow">Add-ons</p>
-              <h3 class="pricing-subtitle">Optional infrastructure &amp; system add-ons</h3>
+          <section
+            id="redesign-modernization"
+            class="alacarte-section alacarte-section--alt"
+            aria-labelledby="alacarte-redesign-title"
+          >
+            <header class="alacarte-section-head">
+              <span class="alacarte-step-eyebrow alacarte-step-eyebrow--alt">Alternative base path</span>
+              <h3 id="alacarte-redesign-title" class="alacarte-section-title">Redesign &amp; Modernization</h3>
+              <p class="alacarte-section-lead">
+                An alternative starting point when you already have a website that needs to be rebuilt.
+              </p>
             </header>
 
-            <aside class="pricing-addons-intro" role="note">
-              CMS, admin dashboards, authentication, permissions, database integration, Stripe, scheduling, and
-              advanced automation are <strong>not included by default</strong> unless they are listed inside the
-              selected package.
-            </aside>
-
-            <div class="pricing-table-wrap">
-              <table class="pricing-table pricing-table--addons">
-                <caption class="pricing-table-caption">Add-on pricing</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">Add-on</th>
-                    <th scope="col">Starting price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="addon-cms"><th scope="row">Content Management System (CMS)</th><td class="pricing-cell-price">+$750+</td></tr>
-                  <tr id="addon-admin-dashboard"><th scope="row">Administrative Dashboard / System</th><td class="pricing-cell-price">+$3,000+</td></tr>
-                  <tr><th scope="row">User Authentication System</th><td class="pricing-cell-price">+$500+</td></tr>
-                  <tr><th scope="row">Role Based Permissions</th><td class="pricing-cell-price">+$500+</td></tr>
-                  <tr><th scope="row">Database Integration</th><td class="pricing-cell-price">+$500+</td></tr>
-                  <tr><th scope="row">Stripe Payment Integration</th><td class="pricing-cell-price">+$250+</td></tr>
-                  <tr><th scope="row">Scheduling and Event Systems</th><td class="pricing-cell-price">Custom quote</td></tr>
-                  <tr><th scope="row">Advanced Forms &amp; Automation</th><td class="pricing-cell-price">+$150+</td></tr>
-                  <tr><th scope="row">Accessibility Enhancements</th><td class="pricing-cell-price">+$150+</td></tr>
-                  <tr><th scope="row">Additional Pages</th><td class="pricing-cell-price">+$150 per page</td></tr>
-                  <tr><th scope="row">Future Website Updates</th><td class="pricing-cell-price">$50/hr or quoted per request</td></tr>
-                </tbody>
-              </table>
+            <div class="alacarte-grid alacarte-grid--one">
+              <article id="item-full-redesign" class="panel panel-pad alacarte-card alacarte-card--wide">
+                <header class="alacarte-card-head">
+                  <h4 class="alacarte-card-title">Full Website Redesign</h4>
+                  <p class="alacarte-card-price">Starting at <strong>$2,500 to $4,000+</strong></p>
+                </header>
+                <p class="alacarte-card-bestfor">
+                  <span class="alacarte-card-bestfor-label">Best for</span> outdated websites, older 2008-style
+                  layouts, poor mobile usability, aging GoDaddy/Wix websites, or businesses needing a modern
+                  professional rebuild.
+                </p>
+                <ul class="alacarte-card-bullets alacarte-card-bullets--two-col">
+                  <li>Visual modernization</li>
+                  <li>Mobile-first rebuild</li>
+                  <li>Navigation restructuring</li>
+                  <li>Updated layouts</li>
+                  <li>Improved readability and user experience</li>
+                  <li>Performance-focused rebuild</li>
+                  <li>Desktop/mobile testing</li>
+                </ul>
+              </article>
             </div>
+          </section>
 
-            <div class="pricing-details">
-              <details class="pricing-details-item">
-                <summary>See CMS vs. administrative dashboard breakdown</summary>
-                <div class="pricing-details-body">
-                  <p class="pricing-details-lead">
-                    A CMS lets approved users manage specific website content without editing code. An administrative
-                    dashboard is a more advanced operational layer for internal tools beyond content editing.
-                  </p>
-                  <div class="pricing-table-wrap pricing-table-wrap--nested">
-                    <table class="pricing-table pricing-table--matrix">
-                      <thead>
-                        <tr>
-                          <th scope="col">Capability</th>
-                          <th scope="col">CMS</th>
-                          <th scope="col">Administrative dashboard</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr><th scope="row">Editable text and content</th><td class="cell-check">Yes</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Staff page management</th><td class="cell-check">Yes</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Announcements</th><td class="cell-check">Yes</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Image updates</th><td class="cell-check">Yes</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Menu or service updates</th><td class="cell-check">Yes</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Protected login access</th><td class="cell-check">Yes</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Limited user roles</th><td class="cell-check">Yes</td><td class="cell-value">Expanded</td></tr>
-                        <tr><th scope="row">User and employee management</th><td class="cell-empty">No</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Role based access control</th><td class="cell-empty">No</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Scheduling systems</th><td class="cell-empty">No</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Internal workflow tools</th><td class="cell-empty">No</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Form and submission management</th><td class="cell-empty">No</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Analytics and reporting</th><td class="cell-empty">No</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Document or media management</th><td class="cell-empty">No</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Secure authentication</th><td class="cell-check">Yes</td><td class="cell-value">Extended</td></tr>
-                        <tr><th scope="row">Protected administrative routes</th><td class="cell-empty">No</td><td class="cell-check">Yes</td></tr>
-                        <tr><th scope="row">Database driven infrastructure</th><td class="cell-empty">No</td><td class="cell-check">Yes</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </details>
+          <section
+            id="optional-systems"
+            class="alacarte-section"
+            aria-labelledby="alacarte-systems-title"
+          >
+            <header class="alacarte-section-head">
+              <span class="alacarte-step-eyebrow">Step 2</span>
+              <h3 id="alacarte-systems-title" class="alacarte-section-title">Add Optional Systems</h3>
+              <p class="alacarte-section-lead">
+                These are not included by default unless selected as part of the project scope. They require
+                additional development, testing, security planning, database work, and long-term maintainability
+                considerations.
+              </p>
+            </header>
 
-              <details class="pricing-details-item">
-                <summary>See role permission matrix</summary>
-                <div class="pricing-details-body">
-                  <p class="pricing-details-lead">
-                    Typical permission tiers used inside an administrative system. Final structure depends on how
-                    internal access needs to be separated.
-                  </p>
-                  <div class="pricing-table-wrap pricing-table-wrap--nested">
-                    <table class="pricing-table pricing-table--matrix">
-                      <thead>
-                        <tr>
-                          <th scope="col">Role</th>
-                          <th scope="col">Users</th>
-                          <th scope="col">Content</th>
-                          <th scope="col">Settings</th>
-                          <th scope="col">Analytics</th>
-                          <th scope="col">Read</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">
-                            <span class="pricing-role-name">Super Admin</span>
-                            <span class="pricing-role-desc">Full system control</span>
-                          </th>
-                          <td class="cell-check">Full</td>
-                          <td class="cell-check">Full</td>
-                          <td class="cell-check">Full</td>
-                          <td class="cell-check">Full</td>
-                          <td class="cell-check">Yes</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <span class="pricing-role-name">Administrator</span>
-                            <span class="pricing-role-desc">Manage users, content, and settings</span>
-                          </th>
-                          <td class="cell-check">Yes</td>
-                          <td class="cell-check">Yes</td>
-                          <td class="cell-check">Yes</td>
-                          <td class="cell-check">Yes</td>
-                          <td class="cell-check">Yes</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <span class="pricing-role-name">Manager</span>
-                            <span class="pricing-role-desc">Operational oversight</span>
-                          </th>
-                          <td class="cell-partial">Partial</td>
-                          <td class="cell-check">Yes</td>
-                          <td class="cell-empty">No</td>
-                          <td class="cell-check">Yes</td>
-                          <td class="cell-check">Yes</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <span class="pricing-role-name">Staff / User</span>
-                            <span class="pricing-role-desc">Limited workflow access</span>
-                          </th>
-                          <td class="cell-empty">No</td>
-                          <td class="cell-partial">Partial</td>
-                          <td class="cell-empty">No</td>
-                          <td class="cell-empty">No</td>
-                          <td class="cell-check">Yes</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <span class="pricing-role-name">Viewer</span>
-                            <span class="pricing-role-desc">Read only</span>
-                          </th>
-                          <td class="cell-empty">No</td>
-                          <td class="cell-empty">No</td>
-                          <td class="cell-empty">No</td>
-                          <td class="cell-empty">No</td>
-                          <td class="cell-check">Yes</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </details>
+            <div class="alacarte-grid alacarte-systems-grid">
+              <article
+                id="item-cms"
+                class="panel panel-pad alacarte-card alacarte-card--system alacarte-card--featured"
+              >
+                <header class="alacarte-card-head">
+                  <h4 class="alacarte-card-title">Content Management System (CMS)</h4>
+                  <p class="alacarte-card-price">Starting at <strong>+$750+</strong></p>
+                </header>
+                <p class="alacarte-card-bestfor">
+                  Allows approved users to update selected website content without editing code.
+                </p>
+                <p class="alacarte-card-listlabel">May include</p>
+                <ul class="alacarte-card-bullets alacarte-card-bullets--two-col">
+                  <li>Editable text/content</li>
+                  <li>Staff page updates</li>
+                  <li>Announcements</li>
+                  <li>Image updates</li>
+                  <li>Menu/service updates</li>
+                  <li>Protected login access</li>
+                  <li>Limited editor roles</li>
+                </ul>
+              </article>
+
+              <article
+                id="item-admin-dashboard"
+                class="panel panel-pad alacarte-card alacarte-card--system alacarte-card--featured"
+              >
+                <header class="alacarte-card-head">
+                  <h4 class="alacarte-card-title">Administrative Dashboard/System</h4>
+                  <p class="alacarte-card-price">Starting at <strong>+$3,000+</strong></p>
+                </header>
+                <p class="alacarte-card-bestfor">
+                  For organizations needing internal tools beyond website content editing.
+                </p>
+                <p class="alacarte-card-listlabel">May include</p>
+                <ul class="alacarte-card-bullets alacarte-card-bullets--two-col">
+                  <li>User/employee management</li>
+                  <li>Role-based access control</li>
+                  <li>Scheduling systems</li>
+                  <li>Internal workflow tools</li>
+                  <li>Form/submission management</li>
+                  <li>Analytics/reporting</li>
+                  <li>Document or media management</li>
+                  <li>Protected administrative routes</li>
+                </ul>
+              </article>
+
+              <article id="item-user-authentication" class="panel panel-pad alacarte-card alacarte-card--system">
+                <header class="alacarte-card-head">
+                  <h4 class="alacarte-card-title">User Authentication</h4>
+                  <p class="alacarte-card-price">Starting at <strong>+$500+</strong></p>
+                </header>
+                <p class="alacarte-card-bestfor">
+                  For login-based access, protected pages, or user-specific functionality.
+                </p>
+              </article>
+
+              <article id="item-role-permissions" class="panel panel-pad alacarte-card alacarte-card--system">
+                <header class="alacarte-card-head">
+                  <h4 class="alacarte-card-title">Role-Based Permissions</h4>
+                  <p class="alacarte-card-price">Starting at <strong>+$500+</strong></p>
+                </header>
+                <p class="alacarte-card-bestfor">
+                  For projects where different users need different levels of access.
+                </p>
+              </article>
+
+              <article id="item-database-integration" class="panel panel-pad alacarte-card alacarte-card--system">
+                <header class="alacarte-card-head">
+                  <h4 class="alacarte-card-title">Database Integration</h4>
+                  <p class="alacarte-card-price">Starting at <strong>+$500+</strong></p>
+                </header>
+                <p class="alacarte-card-bestfor">
+                  For storing and managing structured content, submissions, users, or dynamic website data.
+                </p>
+              </article>
+
+              <article id="item-stripe" class="panel panel-pad alacarte-card alacarte-card--system">
+                <header class="alacarte-card-head">
+                  <h4 class="alacarte-card-title">Stripe Payment Integration</h4>
+                  <p class="alacarte-card-price">Starting at <strong>+$250+</strong></p>
+                </header>
+                <p class="alacarte-card-bestfor">
+                  For payment links, payment forms, or Stripe checkout integration.
+                </p>
+              </article>
             </div>
-          </div>
+          </section>
+
+          <section
+            id="optional-enhancements"
+            class="alacarte-section"
+            aria-labelledby="alacarte-enhancements-title"
+          >
+            <header class="alacarte-section-head">
+              <span class="alacarte-step-eyebrow">Step 3</span>
+              <h3 id="alacarte-enhancements-title" class="alacarte-section-title">Add Enhancements If Needed</h3>
+              <p class="alacarte-section-lead">
+                Smaller add-ons used to round out a project once the base build and systems are decided.
+              </p>
+            </header>
+
+            <ul class="alacarte-enhancement-list">
+              <li id="item-additional-pages" class="alacarte-enhancement-row">
+                <span class="alacarte-enhancement-name">Additional Pages</span>
+                <span class="alacarte-enhancement-price">+$150 per page</span>
+              </li>
+              <li id="item-advanced-forms" class="alacarte-enhancement-row">
+                <span class="alacarte-enhancement-name">Advanced Forms &amp; Automation</span>
+                <span class="alacarte-enhancement-price">+$150+</span>
+              </li>
+              <li id="item-scheduling" class="alacarte-enhancement-row">
+                <span class="alacarte-enhancement-name">Scheduling/Event Systems</span>
+                <span class="alacarte-enhancement-price">Custom Quote</span>
+              </li>
+              <li id="item-accessibility" class="alacarte-enhancement-row">
+                <span class="alacarte-enhancement-name">Accessibility Enhancements</span>
+                <span class="alacarte-enhancement-price">+$150+</span>
+              </li>
+              <li id="item-custom-animations" class="alacarte-enhancement-row">
+                <span class="alacarte-enhancement-name">Custom Animations/Interactions</span>
+                <span class="alacarte-enhancement-price">+$200+</span>
+              </li>
+              <li id="item-future-updates" class="alacarte-enhancement-row">
+                <span class="alacarte-enhancement-name">Future Website Updates</span>
+                <span class="alacarte-enhancement-price">$50/hr or quoted per request</span>
+              </li>
+            </ul>
+          </section>
+
+          <section
+            id="example-configurations"
+            class="alacarte-section alacarte-section--examples"
+            aria-labelledby="alacarte-examples-title"
+          >
+            <header class="alacarte-section-head">
+              <span class="alacarte-step-eyebrow alacarte-step-eyebrow--examples">Examples</span>
+              <h3 id="alacarte-examples-title" class="alacarte-section-title">Example Configurations</h3>
+              <p class="alacarte-section-lead">
+                These are sample scopes, not fixed packages. Every project is scoped individually.
+              </p>
+            </header>
+
+            <div class="alacarte-grid alacarte-examples-grid">
+              <article class="panel panel-pad alacarte-example-card">
+                <p class="alacarte-example-eyebrow">Example</p>
+                <h4 class="alacarte-example-title">Small Business Website</h4>
+                <p class="alacarte-example-price">Example starting point: <strong>$2,000+</strong></p>
+                <p class="alacarte-example-summary">
+                  Starter Website + contact form + basic SEO + domain/DNS help.
+                </p>
+              </article>
+
+              <article class="panel panel-pad alacarte-example-card">
+                <p class="alacarte-example-eyebrow">Example</p>
+                <h4 class="alacarte-example-title">Business Growth Website</h4>
+                <p class="alacarte-example-price">Example starting point: <strong>$3,500+</strong></p>
+                <p class="alacarte-example-summary">
+                  Professional Business Website + advanced forms + CMS.
+                </p>
+              </article>
+
+              <article class="panel panel-pad alacarte-example-card">
+                <p class="alacarte-example-eyebrow">Example</p>
+                <h4 class="alacarte-example-title">Website Modernization</h4>
+                <p class="alacarte-example-price">Example starting point: <strong>$4,000+</strong></p>
+                <p class="alacarte-example-summary">
+                  Full Website Redesign + CMS + mobile-first rebuild.
+                </p>
+              </article>
+
+              <article class="panel panel-pad alacarte-example-card">
+                <p class="alacarte-example-eyebrow">Example</p>
+                <h4 class="alacarte-example-title">Operational Business Platform</h4>
+                <p class="alacarte-example-price">Example starting point: <strong>$7,500+</strong></p>
+                <p class="alacarte-example-summary">
+                  Advanced Custom Website + Administrative Dashboard + authentication + roles + database integration.
+                </p>
+              </article>
+            </div>
+          </section>
 
           <div class="pricing-footnotes">
             <article class="panel panel-pad services-note services-note--church pricing-church-note">
@@ -630,10 +656,9 @@
             </article>
 
             <p class="pricing-disclaimer">
-              Final pricing depends on project size, design complexity, number of pages, functionality, integrations,
-              admin requirements, database needs, testing requirements, and long-term maintainability. I reserve the
-              right to accept or decline projects based on scope, availability, project fit, and alignment with my values
-              and business direction.
+              Every project is scoped individually. Final pricing depends on design complexity, number of pages,
+              content needs, integrations, administrative requirements, database needs, testing requirements, and
+              long-term maintainability.
             </p>
           </div>
         </div>
@@ -1007,7 +1032,6 @@
       (function () {
         "use strict";
         var HIGHLIGHT_MS_PRIMARY = 2200;
-        var HIGHLIGHT_MS_SECONDARY = 2200;
         var SECONDARY_DELAY_MS = 650;
         var pulseClass = "pricing-pulse";
 
@@ -1025,24 +1049,35 @@
           }, duration);
         }
 
-        function scrollToPricingTarget(targetId, secondaryTargetId) {
-          var target = targetId ? document.getElementById(targetId) : null;
-          if (!target) return;
-          var reduce = prefersReducedMotion();
-          try {
-            target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
-          } catch (e) {
-            target.scrollIntoView();
+        function pulseEach(ids, delay) {
+          if (!ids || !ids.length) return;
+          var run = function () {
+            ids.forEach(function (id) {
+              if (!id) return;
+              var el = document.getElementById(id);
+              if (el) pulse(el, HIGHLIGHT_MS_PRIMARY);
+            });
+          };
+          if (delay && !prefersReducedMotion()) {
+            window.setTimeout(run, delay);
+          } else {
+            run();
           }
-          pulse(target, HIGHLIGHT_MS_PRIMARY);
+        }
 
-          if (secondaryTargetId) {
-            var secondary = document.getElementById(secondaryTargetId);
-            if (secondary) {
-              window.setTimeout(function () {
-                pulse(secondary, HIGHLIGHT_MS_SECONDARY);
-              }, reduce ? 0 : SECONDARY_DELAY_MS);
+        function scrollToPricingTarget(targetId, highlightIds) {
+          var target = targetId ? document.getElementById(targetId) : null;
+          if (target) {
+            var reduce = prefersReducedMotion();
+            try {
+              target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+            } catch (e) {
+              target.scrollIntoView();
             }
+            pulse(target, HIGHLIGHT_MS_PRIMARY);
+          }
+          if (highlightIds && highlightIds.length) {
+            pulseEach(highlightIds, SECONDARY_DELAY_MS);
           }
         }
 
@@ -1054,10 +1089,15 @@
             function activate(e) {
               if (e.target && e.target.closest && e.target.closest("a")) return;
               e.preventDefault();
-              scrollToPricingTarget(
-                card.getAttribute("data-buyer-target"),
-                card.getAttribute("data-buyer-secondary") || null
-              );
+              var primary = card.getAttribute("data-buyer-target");
+              var raw = card.getAttribute("data-buyer-highlights") || "";
+              var secondaries = raw
+                .split(",")
+                .map(function (s) {
+                  return s.trim();
+                })
+                .filter(Boolean);
+              scrollToPricingTarget(primary, secondaries);
             }
             card.addEventListener("click", activate);
             card.addEventListener("keydown", function (e) {
