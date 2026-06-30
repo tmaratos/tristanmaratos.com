@@ -124,10 +124,20 @@ async function sendEmail(env, payload) {
   if (!response.ok) {
     const detail = await response.text().catch(() => "");
     console.error("Resend API error", response.status, detail);
-    return false;
+    let resendMessage = "";
+    try {
+      const parsed = JSON.parse(detail);
+      if (parsed?.message) resendMessage = String(parsed.message);
+    } catch {
+      /* not JSON */
+    }
+    const hint =
+      "Resend sandbox only delivers to your account signup email; set TO_EMAIL to that address until your domain is verified." +
+      (resendMessage ? ` Resend: ${resendMessage}` : "");
+    return { ok: false, hint };
   }
 
-  return true;
+  return { ok: true };
 }
 
 export default {
@@ -173,8 +183,8 @@ export default {
     }
 
     const sent = await sendEmail(env, validated);
-    if (!sent) {
-      return jsonResponse({ error: "Email send failed" }, 500);
+    if (!sent.ok) {
+      return jsonResponse({ error: "Email send failed", hint: sent.hint }, 500);
     }
 
     return jsonResponse({ ok: true });

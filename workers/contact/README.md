@@ -20,7 +20,13 @@ Configured in `js/contact-config.js` on the site.
 | `RESEND_API_KEY` | **Secret** | Resend API key — never commit |
 | `TURNSTILE_SECRET_KEY` | **Secret** | Cloudflare Turnstile secret |
 | `RESEND_FROM` | `wrangler.toml` `[vars]` | Sender address (use `onboarding@resend.dev` until domain is verified) |
-| `TO_EMAIL` | `wrangler.toml` `[vars]` | Inbox that receives submissions (`tristanstuff@denjess.com`) |
+| `TO_EMAIL` | `wrangler.toml` `[vars]` | Inbox that receives submissions. **Resend sandbox:** with `onboarding@resend.dev`, mail only delivers to your Resend account signup email (e.g. `tristan@denjess.com`); use that until the domain is verified, then set production inbox (e.g. `tristanstuff@denjess.com`). |
+
+
+
+## Resend sandbox
+
+While `RESEND_FROM` uses `onboarding@resend.dev`, Resend only delivers to the email address you used to sign up for Resend. Set `TO_EMAIL` in `wrangler.toml` to that address (currently `tristan@denjess.com`). After you verify `denjess.com` in Resend and switch the sender to your domain, change `TO_EMAIL` back to your normal inbox.
 
 ## Deploy
 
