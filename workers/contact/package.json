@@ -1,0 +1,13 @@
+{
+  "name": "tristanmaratos-contact-worker",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Cloudflare Worker for tristanmaratos.com contact form (Turnstile + Resend)",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

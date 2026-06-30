@@ -1,0 +1,8 @@
+name = "tristanmaratos-contact-workercom"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+# Non-secret configuration. Set secrets via `wrangler secret put` (see README).
+[vars]
+RESEND_FROM = "Tristan Maratos <onboarding@resend.dev>"
+TO_EMAIL = "tristanstuff@denjess.com"
