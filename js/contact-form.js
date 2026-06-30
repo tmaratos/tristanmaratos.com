@@ -33,6 +33,22 @@
     return "Something went wrong. Please try again.";
   }
 
+  function normalizeWorkerError(raw) {
+    if (typeof raw !== "string") return null;
+    var msg = raw.trim();
+    if (!msg) return null;
+    var lower = msg.toLowerCase();
+    if (lower.indexOf("turnstile") !== -1 && lower.indexOf("fail") !== -1) {
+      return mapError("turnstile_invalid");
+    }
+    if (lower.indexOf("missing turnstile") !== -1) return mapError("turnstile_required");
+    if (lower.indexOf("email send failed") !== -1 || lower.indexOf("send failed") !== -1) {
+      return mapError("send_failed");
+    }
+    if (lower.indexOf("misconfigured") !== -1) return mapError("server_misconfigured");
+    return msg;
+  }
+
   function mapError(code) {
     switch (code) {
       case "turnstile_required":
@@ -235,7 +251,10 @@
         if (typeof data.error === "string") errMsg = data.error;
         else if (explicitFail && typeof data.message === "string") errMsg = data.message;
         if (explicitFail || errMsg) {
-          setStatus("error", errMsg || mapError(data.code) || "Request could not be completed.");
+          setStatus(
+            "error",
+            normalizeWorkerError(errMsg) || mapError(data.code) || "Request could not be completed."
+          );
           resetTurnstile();
         } else {
           setStatus(
@@ -247,12 +266,13 @@
           resetTurnstile();
         }
       } else {
-        var friendly =
+        var rawErr =
           typeof data.error === "string"
             ? data.error
             : typeof data.message === "string"
               ? data.message
-              : mapHttp(r.status);
+              : "";
+        var friendly = normalizeWorkerError(rawErr) || mapHttp(r.status);
         if (friendly === mapHttp(r.status) && data.code) friendly = mapError(data.code);
         setStatus("error", friendly);
         resetTurnstile();
