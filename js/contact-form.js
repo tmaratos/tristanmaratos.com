@@ -94,12 +94,29 @@
     updateSubmitAvailability();
   }
 
+  function bindTurnstileInput(input) {
+    input.addEventListener("change", updateSubmitAvailability);
+    input.addEventListener("input", updateSubmitAvailability);
+    updateSubmitAvailability();
+
+    // Turnstile sets .value programmatically; change/input may not fire.
+    var lastToken = getTurnstileToken();
+    var ticks = 0;
+    var poll = setInterval(function () {
+      ticks++;
+      var token = getTurnstileToken();
+      if (token !== lastToken) {
+        lastToken = token;
+        updateSubmitAvailability();
+      }
+      if (token || ticks > 240) clearInterval(poll);
+    }, 500);
+  }
+
   function watchTurnstileResponse() {
     var input = document.querySelector('[name="cf-turnstile-response"]');
     if (input) {
-      input.addEventListener("change", updateSubmitAvailability);
-      input.addEventListener("input", updateSubmitAvailability);
-      updateSubmitAvailability();
+      bindTurnstileInput(input);
       return;
     }
 
@@ -107,13 +124,19 @@
       input = document.querySelector('[name="cf-turnstile-response"]');
       if (!input) return;
       observer.disconnect();
-      input.addEventListener("change", updateSubmitAvailability);
-      input.addEventListener("input", updateSubmitAvailability);
-      updateSubmitAvailability();
+      bindTurnstileInput(input);
     });
 
     observer.observe(form, { childList: true, subtree: true });
   }
+
+  window.tmContactTurnstileOk = function () {
+    updateSubmitAvailability();
+  };
+
+  window.tmContactTurnstileExpire = function () {
+    updateSubmitAvailability();
+  };
 
   function parseResponseBody(text) {
     if (!text || !text.trim()) return {};
